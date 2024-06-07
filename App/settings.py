@@ -225,35 +225,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587  # or your SMTP server's port
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_HOST_USER = 'amitraazec53@gmail.com'
-# EMAIL_HOST_PASSWORD = 'jurm sklb gpnx rncb'
-
-# import os
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-# settings.py
-
-# AWS_ACCESS_KEY_ID = 'AKIAW3MEAYO4JQ4IWQPV'
-# AWS_SECRET_ACCESS_KEY = 'UuCJbU3/jXuCKNJ2GejY6vrtpDWrKYDts3Ip/9mJ'
-# AWS_STORAGE_BUCKET_NAME = 'progrowth-project-v1'
-# AWS_DEFAULT_ACL = 'private'
-# AWS_S3_REGION_NAME = 'ap-south-1'  # e.g., us-west-2
-
-# AWS_S3_VERIFY = True
-# AWS_S3_FILE_OVERWRITE = False
-# DEFAULT_FILE_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_QUERYSTRING_AUTH = False
-# AWS_S3_FILE_OVERWRITE = False
-
-
 # settings.py
 
 from celery.schedules import crontab
