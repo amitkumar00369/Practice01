@@ -73,7 +73,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_rest_passwordreset',
     "rest_framework_simplejwt",
-    "sarox",
+    # "sarox",
+    # "d11_point_prediction",
+    "mongo",
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -143,12 +145,32 @@ WSGI_APPLICATION = "App.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+from mongoengine import connect
+
+# Connect to MongoDB
+connect(
+    db='admin',
+    host='mongodb://localhost:27017/admin'
+)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'Amit',
+#         # 'ENFORCE_SCHEMA': False,  # Optionally set this to True if you want to enforce schema validation
+#         'CLIENT': {
+#             'host': 'mongodb://localhost:27017',
+#             # Other client options such as username, password, etc.
+#         }
+#     }
+# }
+
 
 # DATABASES = {
 #     'default': {
@@ -219,16 +241,26 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # settings.py
 
-AWS_ACCESS_KEY_ID = 'AKIAW3MEAYO4JQ4IWQPV'
-AWS_SECRET_ACCESS_KEY = 'UuCJbU3/jXuCKNJ2GejY6vrtpDWrKYDts3Ip/9mJ'
-AWS_STORAGE_BUCKET_NAME = 'progrowth-project-v1'
-AWS_DEFAULT_ACL = 'private'
-AWS_S3_REGION_NAME = 'ap-south-1'  # e.g., us-west-2
+# AWS_ACCESS_KEY_ID = 'AKIAW3MEAYO4JQ4IWQPV'
+# AWS_SECRET_ACCESS_KEY = 'UuCJbU3/jXuCKNJ2GejY6vrtpDWrKYDts3Ip/9mJ'
+# AWS_STORAGE_BUCKET_NAME = 'progrowth-project-v1'
+# AWS_DEFAULT_ACL = 'private'
+# AWS_S3_REGION_NAME = 'ap-south-1'  # e.g., us-west-2
 
-AWS_S3_VERIFY = True
-AWS_S3_FILE_OVERWRITE = False
-DEFAULT_FILE_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_FILE_OVERWRITE = False
+# AWS_S3_VERIFY = True
+# AWS_S3_FILE_OVERWRITE = False
+# DEFAULT_FILE_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = False
 
 
+# settings.py
+
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    'reset_google_form_links_task': {
+        'task': 'your_app_name.tasks.reset_google_form_links_task',
+        'schedule': crontab(minute=0, hour=0),  # Run daily at midnight
+    },
+}

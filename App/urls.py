@@ -19,7 +19,8 @@ from django.urls import path,include
 
 urlpatterns = [
    
-    path("",include("sarox.urls")),
+    path("",include("mongo.urls")),
+    # path("",include("d11_point_prediction.urls")),
    
 
 ]

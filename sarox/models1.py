@@ -13,6 +13,7 @@ class CustomUser(AbstractUser):
     password = models.CharField(max_length=128)
     profile_image=models.CharField(max_length=128,blank=True)
     Designation=models.CharField(max_length=80,blank=True)
+    ammounts=models.BigIntegerField()
     
    
     # motors_assign=models.CharField(max_length=255,null=True,blank=True,default=False)
@@ -91,4 +92,11 @@ class profile_image_table(models.Model):
 
 
     
-    
+class GoogleForm(models.Model):
+    pre_link = models.URLField()
+    post_link = models.URLField()
+    mid_link = models.URLField()
+
+
+class FormSubmission(models.Model):
+    submission_count = models.IntegerField(default=0)
