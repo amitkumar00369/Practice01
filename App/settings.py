@@ -145,19 +145,19 @@ WSGI_APPLICATION = "App.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-from mongoengine import connect
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+# from mongoengine import connect
 
-# Connect to MongoDB
-connect(
-    db='admin',
-    host='mongodb://localhost:27017/admin'
-)
+# # Connect to MongoDB
+# connect(
+#     db='admin',
+#     host='mongodb://localhost:27017/admin'
+# )
 
 # DATABASES = {
 #     'default': {
