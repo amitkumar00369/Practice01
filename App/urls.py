@@ -20,7 +20,8 @@ from django.urls import path,include
 urlpatterns = [
    
     path("",include("mongo.urls")),
-    # path("",include("d11_point_prediction.urls")),
+    path("sarox/",include("sarox.urls")),
+    path("",include("d11_point_prediction.urls")),
    
 
 ]

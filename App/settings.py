@@ -73,8 +73,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_rest_passwordreset',
     "rest_framework_simplejwt",
-    # "sarox",
-    # "d11_point_prediction",
+    "sarox",
+    "d11_point_prediction",
     "mongo",
 ]
 REST_FRAMEWORK = {
