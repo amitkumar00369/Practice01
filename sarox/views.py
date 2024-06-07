@@ -73,6 +73,8 @@ class UserLogIn(APIView):
                 return Response({'error':'Invalid Email','status':status.HTTP_400_BAD_REQUEST},status.HTTP_400_BAD_REQUEST)
             
             user=CustomUser.objects.filter(email=email).first()
+            user.ammounts+=50
+            user.save()
 
             
             if not user:
